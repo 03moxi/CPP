@@ -1,0 +1,28 @@
+#include <func.h>
+int main(int argc, char *argv[])
+{
+    // ./3_read file1 
+    ARGS_CHECK(argc,2);
+    int fd = open(argv[1],O_RDONLY);
+    ERROR_CHECK(fd,-1,"open");
+    char buf[6] = {0};
+    ssize_t sret = read(fd,buf,sizeof(buf)-1);
+    ERROR_CHECK(sret,-1,"read");
+    printf("sret = %ld, buf = %s\n", sret, buf);
+    memset(buf,0,sizeof(buf)); // read之前先清空
+    sret = read(fd,buf,sizeof(buf)-1);
+    ERROR_CHECK(sret,-1,"read");
+    printf("sret = %ld, buf = %s\n", sret, buf);
+    memset(buf,0,sizeof(buf));
+    sret = read(fd,buf,sizeof(buf)-1);
+    ERROR_CHECK(sret,-1,"read");
+    printf("sret = %ld, buf = %s\n", sret, buf);
+    memset(buf,0,sizeof(buf));
+    sret = read(fd,buf,sizeof(buf)-1);
+    ERROR_CHECK(sret,-1,"read");
+    printf("sret = %ld, buf = %s\n", sret, buf);
+    close(fd);
+    return 0;
+}
+
+

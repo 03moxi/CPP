@@ -1,0 +1,19 @@
+#include <func.h>
+void handler(int signum){
+    printf("Before signum = %d\n", signum);
+    sleep(5);
+    printf("After signum = %d\n", signum);
+}
+int main(int argc, char *argv[])
+{
+    signal(SIGINT,handler);// signal是不会阻塞
+    signal(SIGQUIT,handler);// signal是不会阻塞
+    
+    char buf[4096] = {0};
+    ssize_t sret = read(STDIN_FILENO,buf,sizeof(buf));
+    printf("sret = %ld, buf = %s\n", sret, buf);
+
+    return 0;
+}
+
+

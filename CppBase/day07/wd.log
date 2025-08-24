@@ -1,0 +1,5 @@
+2025-06-27 21:28:24,284 salesDepart [FATAL] this is an emerge msg
+2025-06-27 21:28:24,284 salesDepart [FATAL] this is a fatal msg
+2025-06-27 21:28:24,285 salesDepart [ALERT] this is an alert msg
+2025-06-27 21:28:24,285 salesDepart [CRIT] this is a crit msg
+2025-06-27 21:28:24,285 salesDepart [ERROR] this is an error msg
